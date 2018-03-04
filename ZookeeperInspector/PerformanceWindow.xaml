@@ -1,0 +1,52 @@
+﻿<Window x:Class="ZookeeperInspector.PerformanceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZookeeperInspector"
+        mc:Ignorable="d"
+        Title="Performance" Height="500" Width="500"
+        Icon=".\Resources\inspector2.png">
+    <Grid>
+        <StackPanel Orientation="Vertical"
+                    Margin="5">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="tblNumberOfThreads"
+                           Margin="10"
+                           Text="Number of threads:"/>
+                <TextBox Name="tbxNumberOfThreads"
+                         Margin="10"
+                         Width="100"
+                         Height="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Name="tblZookeepertestPath"
+                           Margin="10"
+                           Text="Zookeeper's test path:"/>
+                <TextBox Name="tbxZookeeperTestPath"
+                         Margin="10"
+                         Width="200"
+                         Height="20"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10,110,10,10">
+                <Button Name="btnCreateLoad"
+                        Height="30"
+                        Width="170"
+                        Content="Start Stress test on zookeeper"
+                        Margin="10" Click="btnCreateLoad_Click"/>
+                <Button Name="btnAbortLoad"
+                        Height="30"
+                        Width="100"
+                        Content="Abort"
+                        Margin="10" Click="btnAbortLoad_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        Margin="10">
+                <TextBlock Name="tblStressStatus"
+                           Margin="10"
+                           Text="Uninitiated.."/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

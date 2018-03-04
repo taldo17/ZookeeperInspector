@@ -1,0 +1,187 @@
+﻿<Window x:Class="ZookeeperInspector.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZookeeperInspector"
+        mc:Ignorable="d"
+        Title="ZooKeeper Manager" Height="950" Width="1200"
+        WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Icon=".\Resources\Inspector2.png">
+    <Window.Resources>
+        <Style x:Key="ReadOnlyTextBox" TargetType="TextBox">
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Margin" Value="0"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style x:Key="SimpleButton" TargetType="Button">
+            <Setter Property="Width" Value="140"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+    </Window.Resources>
+    <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <StackPanel Orientation="Vertical"
+                    Margin="5">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Name="tblConnectionString"
+                           Margin="10"
+                           Text="Connection String:" Height="24"/>
+                    <TextBox Name="tbxConnectionString"
+                         Margin="10"
+                         Height="30"
+                         Width="300"
+                         VerticalAlignment="Center"/>
+                    <Button Name="btnConnectToZK"
+                            Style="{StaticResource SimpleButton}"
+                            Content="Connect to zk" Click="btnConnectToZK_Click"/>
+                    <TextBlock Name="tblConnection"
+                           Margin="10"
+                           Text="Uninitiated.." Height="24"/>
+                    <Image Source=".\Resources\zookeeper-image.png"
+                       Height="100"
+                       Width ="200"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"/>
+                    <Image Source=".\Resources\Inspector2.png"
+                       Height="130"
+                       Width ="300"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5,5,5,30"
+                        Background="LightBlue">
+                    <TextBlock Name="tblPathData"
+                           Margin="10"
+                           VerticalAlignment="Top"
+                           Text="Zookeeper's Path:"/>
+                    <TextBox Name="tbxPath"
+                     Margin="10"
+                     Height="30"
+                     Width="550"
+                     VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnUpdateData"
+                    Style="{StaticResource SimpleButton}"
+                    Content="Update Data"
+                    VerticalAlignment="Top" Click="btnUpdateData_Click"/>
+                    <TextBox Name="tblUpdateData"
+                           Style="{StaticResource ReadOnlyTextBox}"/>
+                    <TextBlock Name="tblData"
+                           Margin="10"
+                           VerticalAlignment="Top"
+                           Text="String Data:"/>
+                    <TextBox Name="tbxData"
+                     Margin="10"
+                     Height="30"
+                     Width="300"
+                     VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnUploadDataFromFile"
+                        Style="{StaticResource SimpleButton}"
+                        Content="Upload Data From File"
+                        VerticalAlignment="Top" Click="btnUploadDataFromFile_Click"/>
+                    <TextBox Name="tblUploadDataFromFile"
+                           Style="{StaticResource ReadOnlyTextBox}"/>
+                    <TextBlock Name="tblUploadDataFromFilePath"
+                           Margin="10"
+                           VerticalAlignment="Top"
+                           Text="    File Path:"/>
+                    <TextBox Name="tbxUploadDataFromFilePath"
+                           Margin="10"
+                           VerticalAlignment="Top"
+                           Height="30"
+                           Width="300"/>
+                    <Button Name="btnBrowseDataFromFile"
+                            Style="{StaticResource SimpleButton}"
+                            Content="Browse"
+                            VerticalAlignment="Top" Click="btnBrowseDataFromFile_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5,30,5,5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnCreation"
+                    Style="{StaticResource SimpleButton}"
+                    Content="Create Node"
+                    VerticalAlignment="Top" Click="btnCreation_Click"/>
+                    <TextBox Name="tblCreation"
+                           Style="{StaticResource ReadOnlyTextBox}"/>
+                    <TextBlock Name="tblDataForNewNode"
+                           Margin="10"
+                           VerticalAlignment="Top"
+                           Text="String Data:"/>
+                    <TextBox Name="tbxDataForNewNode"
+                     Margin="10"
+                     Height="30"
+                     Width="300"
+                     VerticalAlignment="Top"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnDeleteNode"
+                        Style="{StaticResource SimpleButton}"
+                        Content="Delete Node"
+                        VerticalAlignment="Top" Click="btnDeleteNode_Click"/>
+                    <TextBox Name="tblDeleteNode"
+                           Style="{StaticResource ReadOnlyTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5,30,5,5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnGetChildren"
+                    Style="{StaticResource SimpleButton}"
+                    Content="Get Children"
+                    VerticalAlignment="Top" Click="btnGetChildren_Click"/>
+                    <TextBox Name="tblGetChildren"
+                             Style="{StaticResource ReadOnlyTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnSaveDataToFile"
+                            Style="{StaticResource SimpleButton}"
+                            Content="Save Data To Disc"
+                            VerticalAlignment="Bottom" Click="btnSaveDataToFile_Click"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5"
+                        Background="BlanchedAlmond">
+                    <Button Name="btnGetData"
+                        Style="{StaticResource SimpleButton}"
+                        Content="Get Data"
+                        VerticalAlignment="Top" Click="btnGetData_Click"/>
+                    <TextBox   Name="tblGetData"
+                           Style="{StaticResource ReadOnlyTextBox}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                        Margin="5,60,5,5"
+                        Background="LightGray"    >
+                    <Image Source=".\Resources\p2.png"
+                           Width="120"
+                           Height="120"
+                           Margin="10"/>
+                    <Button Name="btnPerformance"
+                    Style="{StaticResource SimpleButton}"
+                    Content="Performance"
+                    Margin="30,30,10,10"
+                    VerticalAlignment="Top" Click="btnPerformance_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </ScrollViewer>
+</Window>
